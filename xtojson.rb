@@ -1,8 +1,11 @@
 require 'rubygems'
-require 'vendor/sinatra/lib/sinatra.rb'
+require 'sinatra'
+require 'json'
 mime :json, "application/json"
 
-get '/' do
-  content_type :json
-  {:message => 'JSON!'}.to_json
+post '/' do
+  if params[:button].upcase == 'X'
+    content_type :json
+    {:message => 'JSON!!!'}.to_json
+  end
 end
